@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ShreeDattaInventory.Models.ReelMaster>
+
+@{
+    ViewData["Title"] = "ShowReelData";
+}
+
+<h1>Reel Master</h1>
+
+<p>
+    <a asp-action="Create">Add new Reel</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GSM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MillSerialNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MillName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReelNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntryDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GSM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MillSerialNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MillName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReelNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("View", "ViewReel", new { id=item.ReelNumber, gsm=item.GSM}) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
